@@ -4,12 +4,13 @@ import TextareaAutosize from "react-autosize-textarea";
 
 import FatText from "../FatText";
 import Avatar from "../Avatar";
-import { HeartFull, HeartEmpty, Comment } from "../Icons";
+import { HeartFull, HeartEmpty, Comment as CommentIcon } from "../Icons";
 
 const Post = styled.div`
   ${(props) => props.theme.whiteBox};
   width: 100%;
   max-width: 600px;
+  user-select: none;
   margin-bottom: 25px;
 `;
 
@@ -29,10 +30,26 @@ const Location = styled.div`
   font-size: 12px;
 `;
 
-const Files = styled.div``;
+const Files = styled.div`
+  position: relative;
+  padding-bottom: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+`;
 
-const File = styled.img`
+const File = styled.div`
   max-width: 100%;
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+  opacity: ${(props) => (props.showing ? 1 : 0)};
+  transition: opacity 0.5s linear;
 `;
 
 const Button = styled.span`
@@ -73,6 +90,18 @@ const Textarea = styled(TextareaAutosize)`
   }
 `;
 
+const Comments = styled.ul`
+  margin-top: 10px;
+`;
+
+const Comment = styled.li`
+  margin-bottom: 7px;
+
+  span {
+    margin-right: 5px;
+  }
+`;
+
 export default ({
   user: { username, avatar },
   location,
@@ -81,6 +110,10 @@ export default ({
   likeCount,
   createdAt,
   newComment,
+  currentItem,
+  toggleLike,
+  onKeyPress,
+  comments,
 }) => {
   return (
     <Post>
@@ -92,18 +125,36 @@ export default ({
         </UserColumn>
       </Header>
       <Files>
-        {files && files.map((file) => <File key={file.id} src={file.url} id={file.id} />)}
+        {files &&
+          files.map((file, index) => (
+            <File key={file.id} src={file.url} id={file.id} showing={index === currentItem} />
+          ))}
       </Files>
       <Meta>
         <Buttons>
-          <Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+          <Button onClick={() => toggleLike()}>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
           <Button>
-            <Comment />
+            <CommentIcon />
           </Button>
         </Buttons>
         <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+        {comments && (
+          <Comments>
+            {comments.map((comment) => (
+              <Comment key={comment.id}>
+                <FatText text={comment.user.username} />
+                {comment.text}
+              </Comment>
+            ))}
+          </Comments>
+        )}
         <Timestamp>{createdAt}</Timestamp>
-        <Textarea placeholder={"Add a comment..."} {...newComment} />
+        <Textarea
+          placeholder={"Add a comment..."}
+          value={newComment.value}
+          onKeyUp={onKeyPress}
+          onChange={newComment.onChange}
+        />
       </Meta>
     </Post>
   );

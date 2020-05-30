@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import useInput from "../../Hooks/useInput";
 import PostPresenter from "./PostPresenter";
+import { useMutation } from "react-apollo-hooks";
+import { TOGGLE_LIKE, ADD_COMMENT } from "./PostQueries";
+import { toast } from "react-toastify";
 
 const PostContainer = ({
   id,
@@ -16,7 +19,56 @@ const PostContainer = ({
 }) => {
   const [isLikedS, setIsLiked] = useState(isLiked);
   const [likeCountS, setLikeCount] = useState(likeCount);
+  const [currentItem, setCurrentItem] = useState(0);
+
+  const [toggleLikeMutation] = useMutation(TOGGLE_LIKE);
+  const [addCommentMutation] = useMutation(ADD_COMMENT);
+
   const comment = useInput("");
+
+  const slide = () => {
+    const totalFiles = files.length;
+    if (currentItem === totalFiles - 1) {
+      setTimeout(() => setCurrentItem(0), 3000);
+    } else {
+      setTimeout(() => setCurrentItem(currentItem + 1), 3000);
+    }
+  };
+
+  useEffect(() => {
+    slide();
+  }, [currentItem, slide]);
+
+  const toggleLike = () => {
+    toggleLikeMutation({
+      variables: {
+        postId: id,
+      },
+    });
+    if (isLikedS) {
+      setIsLiked(false);
+      setLikeCount(likeCountS - 1);
+    } else {
+      setIsLiked(true);
+      setLikeCount(likeCountS + 1);
+    }
+  };
+
+  const onKeyPress = (e) => {
+    const { keyCode } = e;
+    e.preventDefault();
+    if (keyCode === 13) {
+      comment.setValue("");
+      // addCommentMutation({
+      //   variables: {
+      //     text: comment.value,
+      //     postId: id,
+      //   },
+      // });
+    }
+    return;
+  };
+
   return (
     <PostPresenter
       user={user}
@@ -26,10 +78,13 @@ const PostContainer = ({
       comments={comments}
       createdAt={createdAt}
       newComment={comment}
+      currentItem={currentItem}
       setIsLiked={setIsLiked}
       setLikeCount={setLikeCount}
       caption={caption}
       location={location}
+      toggleLike={toggleLike}
+      onKeyPress={onKeyPress}
     />
   );
 };
