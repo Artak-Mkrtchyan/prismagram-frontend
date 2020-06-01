@@ -4,7 +4,7 @@ import TextareaAutosize from "react-autosize-textarea";
 
 import FatText from "../FatText";
 import Avatar from "../Avatar";
-import { HeartFull, HeartEmpty, Comment as CommentIcon } from "../Icons";
+import { HeartFull, HeartEmpty, CommentEmpty as CommentIcon } from "../Icons";
 
 const Post = styled.div`
   ${(props) => props.theme.whiteBox};

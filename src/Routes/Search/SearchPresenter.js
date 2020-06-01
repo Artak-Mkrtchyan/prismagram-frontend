@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import SquarePost from "../../Components/SquarePost";
 import Loader from "../../Components/Loader";
 import FatText from "../../Components/FatText";
 import UserCard from "../../Components/UserCard";
@@ -10,14 +11,16 @@ const Section = styled.div`
   margin-bottom: 50px;
   display: grid;
   grid-gap: 25px;
-  grid-template-columns: repeat(4, 160px);
-  grid-template-rows: 160px;
-  grid-auto-rows: 160px;
 `;
 
 const Wrapper = styled.div`
-  height: 50vh;
   text-align: center;
+`;
+
+const PostSection = styled(Section)`
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
 `;
 
 const SearchPresenter = ({ searchTerm, loading, data }) => {
@@ -36,7 +39,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
   } else if (data && data.searchUser && data.searchPost) {
     return (
       <Wrapper>
-        <Section>
+        <PostSection>
           {data.searchUser.length === 0 ? (
             <FatText text='No users found' />
           ) : (
@@ -51,14 +54,21 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
               />
             ))
           )}
-        </Section>
-        <Section>
+        </PostSection>
+        <PostSection>
           {data.searchPost.length === 0 ? (
             <FatText text='No post Found' />
           ) : (
-            data.searchPost.map((post) => null)
+            data.searchPost.map((post) => (
+              <SquarePost
+                key={post.id}
+                file={post.files[0]}
+                likeCount={post.likeCount}
+                commentCount={post.commentCount}
+              />
+            ))
           )}
-        </Section>
+        </PostSection>
       </Wrapper>
     );
   }
