@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.button`
   width: 100%;
@@ -15,10 +14,7 @@ const Container = styled.button`
   cursor: pointer;
 `;
 
-const Button = ({ text, onClick }) => <Container onClick={onClick}>{text}</Container>;
+const Button = ({ text, onClick = () => {} }) => <Container onClick={onClick}>{text}</Container>;
 
-Button.propTypes = {
-  text: PropTypes.string.isRequired,
-};
 
 export default Button;

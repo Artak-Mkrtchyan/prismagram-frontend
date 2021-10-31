@@ -1,11 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import FollowBottom from "./FollowButton";
-import Avatar from "./Avatar";
-import FatText from "./FatText";
+import Avatar from './Avatar';
+import FatText from './FatText';
+import FollowBottom from './FollowButton';
 
 const Card = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -33,13 +32,5 @@ const UserCard = ({ id, username, isFollowing, url, isSelf }) => (
     {!isSelf && <FollowBottom id={id} isFollowing={isFollowing} />}
   </Card>
 );
-
-UserCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  isFollowing: PropTypes.bool.isRequired,
-  url: PropTypes.string.isRequired,
-  isSelf: PropTypes.bool.isRequired,
-};
 
 export default UserCard;

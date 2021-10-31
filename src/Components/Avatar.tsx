@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const getSize = (size) => {
   let number;
@@ -25,7 +25,7 @@ const Container = styled.div`
   border-radius: 50%;
 `;
 
-const Avatar = ({ size = "sm", url, className }) => (
+const Avatar = ({ size = "sm", url, className = '' }) => (
   <Container className={className} size={size} url={url} />
 );
 

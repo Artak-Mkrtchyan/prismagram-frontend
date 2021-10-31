@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
-import { HeartFull, CommentFull } from "./Icons";
+import { CommentFull, HeartFull } from './Icons';
 
 const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
@@ -60,12 +60,5 @@ const SquarePost = ({ likeCount, commentCount, file }) => (
   </Container>
 );
 
-SquarePost.propTypes = {
-  likeCount: PropTypes.number.isRequired,
-  commentCount: PropTypes.number.isRequired,
-  file: PropTypes.objectOf({
-    url: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default SquarePost;

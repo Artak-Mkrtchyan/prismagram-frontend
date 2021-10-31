@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import AuthPresenter from "./AuthPresenter";
-import { useMutation } from "react-apollo-hooks";
+import React, { useState } from 'react';
+import { useMutation } from 'react-apollo-hooks';
+import { toast } from 'react-toastify';
 
-import useInput from "../../Hooks/useInput";
-import { LOG_IN, CREATE_ACCOUNT, CONFIRM_SECRET, LOCAL_LOG_IN } from "./AuthQueries";
-import { toast } from "react-toastify";
+import useInput from '../../Hooks/useInput';
+import AuthPresenter from './AuthPresenter';
+import { CONFIRM_SECRET, CREATE_ACCOUNT, LOCAL_LOG_IN, LOG_IN } from './AuthQueries';
 
 export default () => {
   const [action, setAction] = useState("logIn");
@@ -13,9 +13,9 @@ export default () => {
   const lastName = useInput("");
   const secret = useInput("");
   const email = useInput("");
-  const [requestSecretMutation] = useMutation(LOG_IN);
-  const [createAccountMutation] = useMutation(CREATE_ACCOUNT);
-  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET);
+  const [requestSecretMutation] = useMutation<{requestSecret: () => {}}>(LOG_IN);
+  const [createAccountMutation] = useMutation<{createAccount: () => {}}>(CREATE_ACCOUNT);
+  const [confirmSecretMutation] = useMutation<{confirmSecret: any}>(CONFIRM_SECRET);
   const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
 
   const onSubmit = async (e) => {

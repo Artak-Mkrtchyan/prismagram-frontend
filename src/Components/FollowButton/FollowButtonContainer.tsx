@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useMutation } from "react-apollo-hooks";
+import React, { useState } from 'react';
+import { useMutation } from 'react-apollo-hooks';
 
-import FollowButtonPresenter from "./FollowButtonPresenter";
-import { FOLLOW, UNFOLLOW } from "./FollowButtonQueries";
+import FollowButtonPresenter from './FollowButtonPresenter';
+import { FOLLOW, UNFOLLOW } from './FollowButtonQueries';
 
 const FollowButtonContainer = ({ isFollowing, id }) => {
   const [isFollowingS, setIsFollowing] = useState(isFollowing);
@@ -23,9 +22,5 @@ const FollowButtonContainer = ({ isFollowing, id }) => {
   return <FollowButtonPresenter onClick={onClick} isFollowing={isFollowingS} />;
 };
 
-FollowButtonContainer.propTypes = {
-  isFollowing: PropTypes.bool.isRequired,
-  id: PropTypes.string.isRequired,
-};
 
 export default FollowButtonContainer;

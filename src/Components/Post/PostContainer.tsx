@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useMutation, useQuery } from "react-apollo-hooks";
-import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useMutation, useQuery } from 'react-apollo-hooks';
+import { toast } from 'react-toastify';
 
-import useInput from "../../Hooks/useInput";
-import PostPresenter from "./PostPresenter";
-import { TOGGLE_LIKE, ADD_COMMENT } from "./PostQueries";
-import { ME } from "../../SharedQueries";
+import useInput from '../../Hooks/useInput';
+import { ME } from '../../SharedQueries';
+import PostPresenter from './PostPresenter';
+import { ADD_COMMENT, TOGGLE_LIKE } from './PostQueries';
 
 const PostContainer = ({
   id,
@@ -27,7 +27,7 @@ const PostContainer = ({
   const { data: meQuery } = useQuery(ME);
 
   const [toggleLikeMutation] = useMutation(TOGGLE_LIKE);
-  const [addCommentMutation] = useMutation(ADD_COMMENT);
+  const [addCommentMutation] = useMutation<{addComment: () => {}}>(ADD_COMMENT);
 
   const comment = useInput("");
 
@@ -91,9 +91,6 @@ const PostContainer = ({
       createdAt={createdAt}
       newComment={comment}
       currentItem={currentItem}
-      setIsLiked={setIsLiked}
-      setLikeCount={setLikeCount}
-      caption={caption}
       location={location}
       toggleLike={toggleLike}
       onKeyPress={onKeyPress}

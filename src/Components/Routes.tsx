@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Redirect, Route, Switch } from "react-router-dom";
-import Auth from "../Routes/Auth";
-import Feed from "../Routes/Feed";
-import Search from "../Routes/Search";
-import Explore from "../Routes/Explore";
-import Profile from "../Routes/Profile";
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+
+import Auth from '../Routes/Auth';
+import Explore from '../Routes/Explore';
+import Feed from '../Routes/Feed';
+import Profile from '../Routes/Profile';
+import Search from '../Routes/Search';
 
 const LoggedInRoutes = () => (
   <Switch>
@@ -26,8 +26,5 @@ const LoggedOutRoutes = () => (
 const AppRouter = ({ isLoggedIn }) =>
   isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
 
-AppRouter.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-};
 
 export default AppRouter;
