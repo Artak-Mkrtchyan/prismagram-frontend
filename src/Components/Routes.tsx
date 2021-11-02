@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Auth from '../Routes/Auth';
 import Explore from '../Routes/Explore';
-import Feed from '../Routes/Feed';
+import { Feed } from '../Routes/Feed';
 import Profile from '../Routes/Profile';
 import Search from '../Routes/Search';
 

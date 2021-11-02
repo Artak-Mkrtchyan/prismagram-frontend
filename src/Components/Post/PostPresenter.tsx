@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import TextareaAutosize from "react-autosize-textarea";
+import React from 'react';
+import TextareaAutosize from 'react-autosize-textarea';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import FatText from "../FatText";
-import Avatar from "../Avatar";
-import { HeartFull, HeartEmpty, CommentEmpty as CommentIcon } from "../Icons";
+import Avatar from '../Avatar';
+import FatText from '../FatText';
+import { CommentEmpty as CommentIcon, HeartEmpty, HeartFull } from '../Icons';
 
 const Post = styled.div`
   ${(props) => props.theme.whiteBox};
@@ -107,7 +107,7 @@ const Comment = styled.li`
   }
 `;
 
-export default ({
+export const PostPresenter = ({
   user: { username, avatar },
   location,
   files,

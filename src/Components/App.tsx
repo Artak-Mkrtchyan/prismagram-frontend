@@ -1,16 +1,19 @@
-import React from "react";
-import { gql } from "apollo-boost";
-import styled, { ThemeProvider } from "styled-components";
-import { useQuery } from "react-apollo-hooks";
-import { HashRouter as Router } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
-import GlobalStyles from "../Styles/GlobalStyles";
-import Routes from "./Routes";
-import Theme from "../Styles/Theme";
-import Footer from "./Footer";
-import Header from "./Header";
+import React from 'react';
+import { HashRouter as Router } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import styled, { ThemeProvider } from 'styled-components';
+
+import { gql, useQuery, useReactiveVar } from '@apollo/client';
+
+import { isLoggedInVar } from '../Apollo/Client';
+import { ME } from '../SharedQueries';
+import GlobalStyles from '../Styles/GlobalStyles';
+import Theme from '../Styles/Theme';
+import Footer from './Footer';
+import Header from './Header';
+import Routes from './Routes';
 
 const QUERY = gql`
   {
@@ -24,10 +27,8 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-export default () => {
-  const {
-    data: { isLoggedIn },
-  } = useQuery(QUERY);
+export const App = () => {
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
 
   return (
     <ThemeProvider theme={Theme}>

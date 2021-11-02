@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, withRouter } from "react-router-dom";
-import { useQuery } from "react-apollo-hooks";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Input from "./Input";
-import useInput from "../Hooks/useInput";
-import { Compass, User, HeartEmpty, Logo } from "./Icons";
-import { ME } from "../SharedQueries";
+import { useQuery } from '@apollo/client';
+
+import useInput from '../Hooks/useInput';
+import { ME } from '../SharedQueries';
+import { Compass, HeartEmpty, Logo, User } from './Icons';
+import Input from './Input';
 
 const Header = styled.header`
   width: 100%;
@@ -64,6 +65,7 @@ const HeaderLink = styled(Link)`
 `;
 
 export default withRouter(({ history }) => {
+  
   const search = useInput("");
   const { data } = useQuery(ME);
 

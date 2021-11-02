@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useMutation } from 'react-apollo-hooks';
+
+import { useMutation } from '@apollo/client';
 
 import FollowButtonPresenter from './FollowButtonPresenter';
 import { FOLLOW, UNFOLLOW } from './FollowButtonQueries';

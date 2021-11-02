@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useMutation } from 'react-apollo-hooks';
 import { toast } from 'react-toastify';
+
+import { useMutation } from '@apollo/client';
 
 import useInput from '../../Hooks/useInput';
 import AuthPresenter from './AuthPresenter';

@@ -44,7 +44,6 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
           ) : (
             data.searchUser.map((user) => (
               <UserCard
-                key={user.id}
                 id={user.id}
                 username={user.username}
                 isFollowing={user.isFollowing}
@@ -60,7 +59,6 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
           ) : (
             data.searchPost.map((post) => (
               <SquarePost
-                key={post.id}
                 file={post.files[0]}
                 likeCount={post.likeCount}
                 commentCount={post.commentCount}

@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Helmet } from "react-helmet";
-import Loader from "../../Components/Loader";
-import Avatar from "../../Components/Avatar";
-import FatText from "../../Components/FatText";
-import FollowButton from "../../Components/FollowButton";
-import SquarePost from "../../Components/SquarePost";
-import Button from "../../Components/Button";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+
+import Avatar from '../../Components/Avatar';
+import Button from '../../Components/Button';
+import FatText from '../../Components/FatText';
+import FollowButton from '../../Components/FollowButton';
+import Loader from '../../Components/Loader';
+import SquarePost from '../../Components/SquarePost';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -60,7 +61,7 @@ const Posts = styled.div`
   grid-auto-rows: 200px;
 `;
 
-export default ({ loading, data, logOut }) => {
+export const ProfilePresenter = ({ loading, data, logOut }) => {
   if (loading === true) {
     return (
       <Wrapper>
@@ -120,7 +121,6 @@ export default ({ loading, data, logOut }) => {
           {posts &&
             posts.map((post) => (
               <SquarePost
-                key={post.id}
                 likeCount={post.likeCount}
                 commentCount={post.commentCount}
                 file={post.files[0]}
