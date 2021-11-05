@@ -3,19 +3,40 @@ import { toast } from 'react-toastify';
 
 import { useMutation } from '@apollo/client';
 
-import useInput from '../../Hooks/useInput';
-import AuthPresenter from './AuthPresenter';
+import { useInput } from '../../Hooks/useInput';
+import { AuthPresenter } from './AuthPresenter';
 import { CONFIRM_SECRET, CREATE_ACCOUNT, LOCAL_LOG_IN, LOG_IN } from './AuthQueries';
 
-export default () => {
+export interface NewUserDetails {
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+}
+
+export interface CreateAccountMutationData {
+  createAccount: NewUserDetails;
+}
+
+export const Auth = () => {
   const [action, setAction] = useState("logIn");
-  const username = useInput("");
-  const firstName = useInput("");
-  const lastName = useInput("");
+  const username = useInput<string>("");
+  const password = useInput<string>("");
+  const firstName = useInput<string>("");
+  const lastName = useInput<string>("");
   const secret = useInput("");
-  const email = useInput("");
+  const email = useInput<string>("");
   const [requestSecretMutation] = useMutation<{requestSecret: () => {}}>(LOG_IN);
-  const [createAccountMutation] = useMutation<{createAccount: () => {}}>(CREATE_ACCOUNT);
+  const [createAccountMutation, { error, data: createAccountData }] = useMutation<CreateAccountMutationData, NewUserDetails>(CREATE_ACCOUNT, {
+    variables: {
+      email: email.value,
+      username: username.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      password: password.value,
+    },
+  });
   const [confirmSecretMutation] = useMutation<{confirmSecret: any}>(CONFIRM_SECRET);
   const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
 
@@ -50,17 +71,8 @@ export default () => {
         lastName.value !== ""
       ) {
         try {
-          const {
-            data: { createAccount },
-          } = await createAccountMutation({
-            variables: {
-              email: email.value,
-              username: username.value,
-              firstName: firstName.value,
-              lastName: lastName.value,
-            },
-          });
-          if (!createAccount) {
+          await createAccountMutation();
+          if (!createAccountData.createAccount) {
             toast.error("Can't create account");
           } else {
             toast.success("Account created! Log In now");
@@ -108,6 +120,7 @@ export default () => {
       firstName={firstName}
       secret={secret}
       lastName={lastName}
+      password={password}
       email={email}
       onSubmit={onSubmit}
     />

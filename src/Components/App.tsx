@@ -1,14 +1,13 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { gql, useQuery, useReactiveVar } from '@apollo/client';
+import { gql, useReactiveVar } from '@apollo/client';
 
 import { isLoggedInVar } from '../Apollo/Client';
-import { ME } from '../SharedQueries';
 import GlobalStyles from '../Styles/GlobalStyles';
 import Theme from '../Styles/Theme';
 import Footer from './Footer';
@@ -34,14 +33,12 @@ export const App = () => {
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
-        <Router>
-          <>
+        <Router >
             {isLoggedIn && <Header />}
             <Wrapper>
               <Routes isLoggedIn={isLoggedIn} />
               <Footer />
             </Wrapper>
-          </>
         </Router>
         <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
       </>

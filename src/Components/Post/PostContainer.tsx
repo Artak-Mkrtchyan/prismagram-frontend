@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import { useMutation, useQuery } from '@apollo/client';
 
-import useInput from '../../Hooks/useInput';
+import { useInput } from '../../Hooks/useInput';
 import { ME } from '../../SharedQueries';
 import { PostPresenter } from './PostPresenter';
 import { ADD_COMMENT, TOGGLE_LIKE } from './PostQueries';

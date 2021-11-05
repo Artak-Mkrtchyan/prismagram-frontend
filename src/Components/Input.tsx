@@ -10,7 +10,9 @@ const Container = styled.input`
   padding: 0px 15px;
 `;
 
-const Input = ({ placeholder, required = true, value, onChange, type = "text", className }) => (
+interface Props { placeholder: string, required?: boolean, value: string, onChange: Function, type?: string, className?: string }
+
+const Input: React.FC<Props>  = ({ placeholder, required = true, value, onChange, type = "text", className }) => (
   <Container
     className={className}
     placeholder={placeholder}

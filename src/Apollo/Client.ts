@@ -3,8 +3,19 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-export const isLoggedInVar = makeVar(Boolean(localStorage.getItem('token')));
+const TOKEN = "TOKEN";
 
+export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
+
+export const logUserIn = (token) => {
+  localStorage.setItem(TOKEN, token);
+  isLoggedInVar(true);
+};
+
+export const logUserOut = () => {
+  localStorage.removeItem(TOKEN);
+  window.location.reload();
+};
 
 export const cache: InMemoryCache = new InMemoryCache({});
 
