@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import SearchPresenter from './SearchPresenter';
 import { SEARCH } from './SearchQueries';
 
-export default withRouter(({ location: { search } }) => {
+export const SearchContainer = withRouter(({ location: { search } }) => {
   const term = search.split("=")[1];
   const { data, loading } = useQuery(SEARCH, {
     skip: term === undefined,

@@ -36,7 +36,7 @@ export const LOG_OUT = gql`
   }
 `;
 
-export default withRouter(
+export const ProfileContainer =  withRouter(
   ({
     match: {
       params: { username },
