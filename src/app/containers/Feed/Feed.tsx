@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import { gql, useQuery } from '@apollo/client';
 
-import Loader from '../../Components/Loader';
-import Post from '../../Components/Post';
+import Loader from '../../components/Loader';
+import Post from '../../components/Post';
 
 const FEED_QUERY = gql`
   {

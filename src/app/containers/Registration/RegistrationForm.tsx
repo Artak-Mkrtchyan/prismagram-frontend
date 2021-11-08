@@ -2,8 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import Button from '../../Components/Button';
-import Input from '../../Components/Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 const Wrapper = styled.div`
   min-height: 80vh;
@@ -51,24 +51,43 @@ const Form = styled(Box)`
   }
 `;
 
-export const AuthPresenter = ({  email, password, onSubmit }) => (
-  <Wrapper>
+interface FormField {
+  value: string;
+   onChange: Function, setValue: Function
+}
+
+export interface Props { username: FormField, password: FormField, firstName: FormField, lastName: FormField, email: FormField, onSubmit: any }
+
+export const RegistrationForm: React.FC<Props>  = (props) => {
+  const { firstName,
+  lastName,
+  email,
+  username,
+  password, onSubmit} = props;
+
+  return <Wrapper>
     <Form>
         <>
           <Helmet>
-            <title>Log In | Prismagram</title>
+            <title>Sign Up | Prismagram</title>
           </Helmet>
           <form onSubmit={onSubmit}>
+            <Input placeholder={"First name"} {...firstName} />
+            <Input placeholder={"Last name"} {...lastName} />
             <Input placeholder={"Email"} {...email} type='email' />
+            <Input placeholder={"Username"} {...username} />
             <Input placeholder={"Password"} {...password} type='password' />
-            <Button text={"Log in"} />
+            <Button text={"Sign up"} />
           </form>
         </>
+        <StateChanger>
+       
+
+       <>
+         Have an account? <Link onClick={() => "logIn"}>Log in</Link>
+       </>
+     
+   </StateChanger>
     </Form>
-      <StateChanger>
-          <>
-            Don't have an account? <Link onClick={() => "signUp"}>Sign Up</Link>
-          </>
-      </StateChanger>
   </Wrapper>
-);
+};

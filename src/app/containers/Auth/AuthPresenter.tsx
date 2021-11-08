@@ -2,8 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import Button from '../../Components/Button';
-import Input from '../../Components/Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 const Wrapper = styled.div`
   min-height: 80vh;
@@ -51,22 +51,21 @@ const Form = styled(Box)`
   }
 `;
 
-interface FormField {
-  value: string;
-   onChange: Function, setValue: Function
-}
-
-export interface Props { username: FormField, password: FormField, firstName: FormField, lastName: FormField, email: FormField, onSubmit: any }
-
-export const RegistrationForm: React.FC<Props>  = (props) => {
-  const { firstName,
-  lastName,
-  email,
-  username,
-  password, onSubmit} = props;
-
-  return <Wrapper>
+export const AuthPresenter = ({ action, username, password, firstName, lastName, email, setAction, onSubmit, secret }) => (
+  <Wrapper>
     <Form>
+      {action === "logIn" && (
+        <>
+          <Helmet>
+            <title>Log In | Prismagram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"Email"} {...email} type='email' />
+            <Button text={"Log in"} />
+          </form>
+        </>
+      )}
+      {action === "signUp" && (
         <>
           <Helmet>
             <title>Sign Up | Prismagram</title>
@@ -80,14 +79,31 @@ export const RegistrationForm: React.FC<Props>  = (props) => {
             <Button text={"Sign up"} />
           </form>
         </>
-        <StateChanger>
-       
-
-       <>
-         Have an account? <Link onClick={() => "logIn"}>Log in</Link>
-       </>
-     
-   </StateChanger>
+      )}
+      {action === "confirm" && (
+        <>
+          <Helmet>
+            <title>Confirm Secret | Prismagram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"Paste your secret"} {...secret} />
+            <Button text={"Confirm"} />
+          </form>
+        </>
+      )}
     </Form>
+    {action !== "confirm" && (
+      <StateChanger>
+        {action === "logIn" ? (
+          <>
+            Don't have an account? <Link onClick={() => setAction("signUp")}>Sign Up</Link>
+          </>
+        ) : (
+          <>
+            Have an account? <Link onClick={() => setAction("logIn")}>Log in</Link>
+          </>
+        )}
+      </StateChanger>
+    )}
   </Wrapper>
-};
+);

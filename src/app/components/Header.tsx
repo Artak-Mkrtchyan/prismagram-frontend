@@ -1,11 +1,11 @@
+import { useInput } from 'app/hooks/useInput';
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useQuery } from '@apollo/client';
 
-import { useInput } from '../Hooks/useInput';
-import { ME } from '../SharedQueries';
+import { ME } from '../../SharedQueries';
 import { Compass, HeartEmpty, Logo, User } from './Icons';
 import Input from './Input';
 

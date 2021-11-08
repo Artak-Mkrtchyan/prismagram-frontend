@@ -2,12 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import Avatar from '../../Components/Avatar';
-import Button from '../../Components/Button';
-import FatText from '../../Components/FatText';
-import FollowButton from '../../Components/FollowButton';
-import Loader from '../../Components/Loader';
-import SquarePost from '../../Components/SquarePost';
+import Avatar from '../../components/Avatar';
+import Button from '../../components/Button';
+import FatText from '../../components/FatText';
+import FollowButton from '../../components/FollowButton';
+import Loader from '../../components/Loader';
+import SquarePost from '../../components/SquarePost';
 
 const Wrapper = styled.div`
   min-height: 100vh;

@@ -1,9 +1,9 @@
+import { useInput } from 'app/hooks/useInput';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { useMutation } from '@apollo/client';
 
-import { useInput } from '../../Hooks/useInput';
 import { CREATE_ACCOUNT } from './gql';
 import { RegistrationForm } from './RegistrationForm';
 

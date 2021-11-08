@@ -1,9 +1,9 @@
+import { useInput } from 'app/hooks/useInput';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { useMutation } from '@apollo/client';
 
-import { useInput } from '../../Hooks/useInput';
 import { AuthPresenter } from './AuthPresenter';
 import { CONFIRM_SECRET, CREATE_ACCOUNT, LOCAL_LOG_IN, LOG_IN } from './AuthQueries';
 

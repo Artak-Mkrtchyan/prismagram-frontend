@@ -1,11 +1,11 @@
+import { useInput } from 'app/hooks/useInput';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { useMutation, useQuery } from '@apollo/client';
 
-import { useInput } from '../../Hooks/useInput';
-import { ME } from '../../SharedQueries';
+import { ME } from '../../../SharedQueries';
 import { PostPresenter } from './PostPresenter';
 import { ADD_COMMENT, TOGGLE_LIKE } from './PostQueries';
 
