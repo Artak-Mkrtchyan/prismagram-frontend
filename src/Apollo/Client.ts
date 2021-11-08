@@ -3,7 +3,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-const TOKEN = "TOKEN";
+export const TOKEN = "TOKEN";
 
 export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
 
@@ -25,7 +25,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem(TOKEN);
   
   return {
     headers: {

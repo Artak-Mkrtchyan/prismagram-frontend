@@ -9,7 +9,7 @@ import { ME } from '../SharedQueries';
 import { Compass, HeartEmpty, Logo, User } from './Icons';
 import Input from './Input';
 
-const Header = styled.header`
+const HeaderElement = styled.header`
   width: 100%;
   border-radius: 0px;
   border: 0px;
@@ -64,18 +64,17 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-export default withRouter(({ history }) => {
+export const Header = withRouter(({ history }) => {
   
   const search = useInput("");
   const { data } = useQuery(ME);
-
   const onSearchSubmit = (e) => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
   };
 
   return (
-    <Header>
+    <HeaderElement>
       <HeaderWrapper>
         <HeaderColumn>
           <Link to='/'>
@@ -99,12 +98,12 @@ export default withRouter(({ history }) => {
               <User />
             </HeaderLink>
           ) : (
-            <HeaderLink to={data.me.username}>
+            <HeaderLink to={`${data.me.username}/`}>
               <User />
             </HeaderLink>
           )}
         </HeaderColumn>
       </HeaderWrapper>
-    </Header>
+    </HeaderElement>
   );
 });

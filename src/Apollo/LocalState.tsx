@@ -1,13 +1,15 @@
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+import { TOKEN } from './Client';
+
 export const defaults = {
-  isLoggedIn: Boolean(localStorage.getItem("token")) || false,
+  isLoggedIn: Boolean(localStorage.getItem(TOKEN)) || false,
 };
 
 export const resolvers = {
   Mutation: {
     logUserIn: (_, { token }, { cache }: { cache: InMemoryCache }) => {
-      localStorage.setItem("token", token);
+      localStorage.setItem(TOKEN, token);
       console.log('cache', cache)
       cache.writeData({
         data: {
@@ -17,7 +19,7 @@ export const resolvers = {
       return null;
     },
     logUserOut: (_, __, { cache }) => {
-      localStorage.removeItem("token");
+      localStorage.removeItem(TOKEN);
       window.location.href = "/";
       return null;
     },

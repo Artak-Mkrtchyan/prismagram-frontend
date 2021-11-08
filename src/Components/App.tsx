@@ -11,7 +11,7 @@ import { isLoggedInVar } from '../Apollo/Client';
 import GlobalStyles from '../Styles/GlobalStyles';
 import Theme from '../Styles/Theme';
 import Footer from './Footer';
-import Header from './Header';
+import { Header } from './Header';
 import Routes from './Routes';
 
 const QUERY = gql`

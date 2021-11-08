@@ -20,9 +20,9 @@ const LoggedInRoutes = () => (
 
 const LoggedOutRoutes = () => (
   <Switch>
-    <Redirect from='*' to='/login' />
     <Route exact path='/registration' component={RegistrationContainer} />
     <Route exact path='/login' component={LoginContainer} />
+    <Redirect from='*' to='/login' />
   </Switch>
 );
 
