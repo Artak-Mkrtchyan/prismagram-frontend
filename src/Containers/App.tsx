@@ -8,11 +8,11 @@ import styled, { ThemeProvider } from 'styled-components';
 import { gql, useReactiveVar } from '@apollo/client';
 
 import { isLoggedInVar } from '../Apollo/Client';
+import Footer from '../Components/Footer';
+import { Header } from '../Components/Header';
+import Routes from '../Components/Routes';
 import GlobalStyles from '../Styles/GlobalStyles';
 import Theme from '../Styles/Theme';
-import Footer from './Footer';
-import { Header } from './Header';
-import Routes from './Routes';
 
 const QUERY = gql`
   {

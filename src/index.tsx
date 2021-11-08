@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from '@apollo/client';
 
 import { client } from './Apollo/Client';
-import { App } from './Components/App';
+import { App } from './Containers/App';
 
 ReactDOM.render(
   <React.StrictMode>
