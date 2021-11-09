@@ -45,8 +45,7 @@ const Wrapper = styled.div`
 
 export const Feed = () => {
   const feed = useQuery(FEED_QUERY);
-  console.log(feed);
-
+ 
   return (
     <Wrapper>
       <Helmet>

@@ -31,8 +31,7 @@ export const LoginContainer = () => {
             toast.success("Check your inbox for your login secret");
           }
         } catch (e) {
-            console.log('error', e)
-          toast.error("Can't request secret, try again");
+           toast.error("Can't request secret, try again");
         }
       } else {
         toast.error("Email is required");
