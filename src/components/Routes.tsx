@@ -1,13 +1,12 @@
 import React from 'react';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-
-import Explore from '../containers/Explore/Explore';
-import { Feed } from '../containers/Feed/Feed';
-import { LoginContainer } from '../containers/Login';
-import { NotFound } from '../containers/NotFound/index';
-import { ProfileContainer } from '../containers/Profile';
-import { RegistrationContainer } from '../containers/Registration/index';
-import { SearchContainer } from '../containers/Search';
+import Explore from 'src/containers/Explore/Explore';
+import { Feed } from 'src/containers/Feed/Feed';
+import { LoginContainer } from 'src/containers/Login';
+import { NotFound } from 'src/containers/NotFound/index';
+import { ProfileContainer } from 'src/containers/Profile';
+import { RegistrationContainer } from 'src/containers/Registration/index';
+import { SearchContainer } from 'src/containers/Search';
 
 const LoggedInRoutes = () => (
   <Switch>

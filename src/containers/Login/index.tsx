@@ -1,10 +1,10 @@
-import { useInput } from 'app/hooks/useInput';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { logUserIn } from 'src/apollo/Client';
+import { useInput } from 'src/hooks/useInput';
 
 import { useMutation } from '@apollo/client';
 
-import { logUserIn } from '../../../Apollo/Client';
 import { LOG_IN } from './gql';
 import { AuthPresenter } from './LoginForm';
 

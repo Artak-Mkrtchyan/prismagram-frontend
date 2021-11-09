@@ -1,11 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Loader from 'src/components/Loader';
+import Post from 'src/components/Post';
 import styled from 'styled-components';
 
 import { gql, useQuery } from '@apollo/client';
-
-import Loader from '../../components/Loader';
-import Post from '../../components/Post';
 
 const FEED_QUERY = gql`
   {

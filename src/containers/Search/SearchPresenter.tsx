@@ -1,10 +1,9 @@
 import React from 'react';
+import FatText from 'src/components/FatText';
+import Loader from 'src/components/Loader';
+import SquarePost from 'src/components/SquarePost';
+import UserCard from 'src/components/UserCard';
 import styled from 'styled-components';
-
-import FatText from '../../components/FatText';
-import Loader from '../../components/Loader';
-import SquarePost from '../../components/SquarePost';
-import UserCard from '../../components/UserCard';
 
 const Section = styled.div`
   margin-bottom: 50px;

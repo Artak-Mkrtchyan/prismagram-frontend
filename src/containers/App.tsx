@@ -3,16 +3,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import { isLoggedInVar } from 'src/apollo/Client';
+import Footer from 'src/components/Footer';
+import { Header } from 'src/components/Header';
+import Routes from 'src/components/Routes';
+import GlobalStyles from 'src/styles/GlobalStyles';
+import Theme from 'src/styles/Theme';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { gql, useReactiveVar } from '@apollo/client';
-
-import { isLoggedInVar } from '../../Apollo/Client';
-import GlobalStyles from '../../Styles/GlobalStyles';
-import Theme from '../../Styles/Theme';
-import Footer from '../components/Footer';
-import { Header } from '../components/Header';
-import Routes from '../components/Routes';
 
 const QUERY = gql`
   {

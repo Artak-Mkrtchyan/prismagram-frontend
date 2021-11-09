@@ -1,11 +1,10 @@
 import React from 'react';
 import TextareaAutosize from 'react-autosize-textarea';
 import { Link } from 'react-router-dom';
+import Avatar from 'src/components/Avatar';
+import FatText from 'src/components/FatText';
+import { CommentEmpty as CommentIcon, HeartEmpty, HeartFull } from 'src/components/Icons';
 import styled from 'styled-components';
-
-import Avatar from '../Avatar';
-import FatText from '../FatText';
-import { CommentEmpty as CommentIcon, HeartEmpty, HeartFull } from '../Icons';
 
 const Post = styled.div`
   ${(props) => props.theme.whiteBox};

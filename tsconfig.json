@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "allowJs": true,
     "target": "es5",
     "lib": [
@@ -22,7 +22,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src",
+    "src/**/*",
     "./**/*.ts", 
     "./**/*.tsx",
   ]

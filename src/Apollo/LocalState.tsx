@@ -1,6 +1,5 @@
 import { InMemoryCache } from 'apollo-cache-inmemory';
-
-import { TOKEN } from './Client';
+import { TOKEN } from 'src/apollo/Client';
 
 export const defaults = {
   isLoggedIn: Boolean(localStorage.getItem(TOKEN)) || false,
