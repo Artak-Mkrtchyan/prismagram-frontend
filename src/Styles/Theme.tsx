@@ -1,7 +1,7 @@
 const BORDER_RADIUS = "4px";
 const BOX_BORDER = "1px solid #e6e6e6";
 
-export default {
+export const theme = {
   maxWidth: "935px",
   bgColor: "#FAFAFA",
   blackColor: "#262626",

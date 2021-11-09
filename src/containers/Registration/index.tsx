@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { useInput } from 'src/hooks/useInput';
 
@@ -26,7 +26,7 @@ export const RegistrationContainer = () => {
   const lastName = useInput<string>("");
   const email = useInput<string>("");
   
-  const [createAccountMutation, { error, data: createAccountData }] = useMutation<CreateAccountMutationData, NewUserDetails>(CREATE_ACCOUNT, {
+  const [createAccountMutation, { data: createAccountData }] = useMutation<CreateAccountMutationData, NewUserDetails>(CREATE_ACCOUNT, {
     variables: {
       email: email.value,
       username: username.value,

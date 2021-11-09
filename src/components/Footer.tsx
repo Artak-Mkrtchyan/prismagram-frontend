@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Footer = styled.footer`
+const FooterElement = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,8 +29,8 @@ const Copyright = styled.span`
   color: ${(props) => props.theme.darkGrayColor};
 `;
 
-export default () => (
-  <Footer>
+export const Footer = () => (
+  <FooterElement>
     <List>
       <ListItem>
         <Link href='#'>about us</Link>
@@ -78,5 +78,5 @@ export default () => (
     </List>
 
     <Copyright>Instaclone {new Date().getFullYear()} &copy;</Copyright>
-  </Footer>
+  </FooterElement>
 );

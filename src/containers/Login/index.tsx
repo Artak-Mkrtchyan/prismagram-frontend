@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { logUserIn } from 'src/apollo/Client';
 import { useInput } from 'src/hooks/useInput';

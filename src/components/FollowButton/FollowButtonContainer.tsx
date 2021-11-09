@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 
-import FollowButtonPresenter from './FollowButtonPresenter';
+import { FollowButtonPresenter } from './FollowButtonPresenter';
 import { FOLLOW, UNFOLLOW } from './FollowButtonQueries';
 
 const FollowButtonContainer = ({ isFollowing, id }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-import Explore from 'src/containers/Explore/Explore';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Explore } from 'src/containers/Explore/Explore';
 import { Feed } from 'src/containers/Feed/Feed';
 import { LoginContainer } from 'src/containers/Login';
 import { NotFound } from 'src/containers/NotFound/index';

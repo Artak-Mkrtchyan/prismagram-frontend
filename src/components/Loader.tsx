@@ -1,7 +1,7 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
-import { Logo } from "./Icons";
+import { Logo } from './Icons';
 
 const Animation = keyframes`
   0% {
@@ -15,14 +15,14 @@ const Animation = keyframes`
   }
 `;
 
-const Loader = styled.div`
+const LoaderElement = styled.div`
   animation: ${Animation} 1s linear infinite;
   width: 100%;
   text-align: center;
 `;
 
-export default () => (
-  <Loader>
+export const Loader = () => (
+  <LoaderElement>
     <Logo size={36} />
-  </Loader>
+  </LoaderElement>
 );

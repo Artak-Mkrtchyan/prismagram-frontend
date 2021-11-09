@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useInput } from 'src/hooks/useInput';
 import { ME } from 'src/SharedQueries';
 import styled from 'styled-components';
@@ -98,7 +99,7 @@ export const Header = withRouter(({ history }) => {
               <User />
             </HeaderLink>
           ) : (
-            <HeaderLink to={`${data.me.username}/`}>
+            <HeaderLink to={`/user/${data.me.username}`}>
               <User />
             </HeaderLink>
           )}

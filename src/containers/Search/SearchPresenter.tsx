@@ -1,6 +1,6 @@
 import React from 'react';
 import FatText from 'src/components/FatText';
-import Loader from 'src/components/Loader';
+import { Loader } from 'src/components/Loader';
 import SquarePost from 'src/components/SquarePost';
 import UserCard from 'src/components/UserCard';
 import styled from 'styled-components';

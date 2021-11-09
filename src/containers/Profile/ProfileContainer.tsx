@@ -1,5 +1,5 @@
 import React from 'react';
-import withRouter from 'react-router-dom/withRouter';
+import { withRouter } from 'react-router';
 
 import { gql, useMutation, useQuery } from '@apollo/client';
 

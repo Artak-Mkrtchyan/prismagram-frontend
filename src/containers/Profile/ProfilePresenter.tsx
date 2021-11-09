@@ -4,7 +4,7 @@ import Avatar from 'src/components/Avatar';
 import Button from 'src/components/Button';
 import FatText from 'src/components/FatText';
 import FollowButton from 'src/components/FollowButton';
-import Loader from 'src/components/Loader';
+import { Loader } from 'src/components/Loader';
 import SquarePost from 'src/components/SquarePost';
 import styled from 'styled-components';
 
