@@ -1,7 +1,7 @@
 import { ApolloClient, createHttpLink, InMemoryCache, makeVar } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-export const TOKEN = "TOKEN";
+export const TOKEN = 'TOKEN';
 
 export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
 
@@ -22,18 +22,17 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  
   const token = localStorage.getItem(TOKEN);
-  
+
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
-  }
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 export const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache
+  cache,
 });

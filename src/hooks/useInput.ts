@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export const useInput = <T>(defaultValue) => {
-  const [value, setValue] = useState<T>(defaultValue);
+export const useInput = (defaultValue) => {
+  const [value, setValue] = useState(defaultValue);
 
   const onChange = (e) => {
     const {
@@ -13,4 +13,3 @@ export const useInput = <T>(defaultValue) => {
 
   return { value, onChange, setValue };
 };
-

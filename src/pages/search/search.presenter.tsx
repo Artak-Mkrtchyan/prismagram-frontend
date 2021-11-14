@@ -3,43 +3,35 @@ import FatText from 'src/components/FatText';
 import { Loader } from 'src/components/Loader';
 import SquarePost from 'src/components/SquarePost';
 import UserCard from 'src/components/UserCard';
-import styled from 'styled-components';
 
-const Section = styled.div`
-  margin-bottom: 50px;
-  display: grid;
-  grid-gap: 25px;
-`;
+import { PostSection, Wrapper } from './search.styles';
+import { Props } from './types';
 
-const Wrapper = styled.div`
-  text-align: center;
-`;
+const SearchPresenter: React.FC<Props> = (props: Props) => {
+  const { searchTerm, loading, data } = props;
 
-const PostSection = styled(Section)`
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: 200px;
-  grid-auto-rows: 200px;
-`;
-
-const SearchPresenter = ({ searchTerm, loading, data }) => {
   if (searchTerm === undefined) {
     return (
       <Wrapper>
-        <FatText text='Search for something' />
+        <FatText text="Search for something" />
       </Wrapper>
     );
-  } else if (loading) {
+  }
+
+  if (loading) {
     return (
       <Wrapper>
         <Loader />
       </Wrapper>
     );
-  } else if (data && data.searchUser && data.searchPost) {
+  }
+
+  if (data && data.searchUser && data.searchPost) {
     return (
       <Wrapper>
         <PostSection>
           {data.searchUser.length === 0 ? (
-            <FatText text='No users found' />
+            <FatText text="No users found" />
           ) : (
             data.searchUser.map((user) => (
               <UserCard
@@ -54,7 +46,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
         </PostSection>
         <PostSection>
           {data.searchPost.length === 0 ? (
-            <FatText text='No post Found' />
+            <FatText text="No post Found" />
           ) : (
             data.searchPost.map((post) => (
               <SquarePost
@@ -68,8 +60,8 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
       </Wrapper>
     );
   }
+
   return <div></div>;
 };
-
 
 export default SearchPresenter;

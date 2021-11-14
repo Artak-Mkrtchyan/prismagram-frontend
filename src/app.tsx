@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const App = () => {
+export const App: React.FC = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
 
   return (

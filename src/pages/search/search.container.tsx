@@ -1,14 +1,14 @@
-import React from 'react';
 import { withRouter } from 'react-router';
 
 import { useQuery } from '@apollo/client';
 
-import SearchPresenter from './SearchPresenter';
-import { SEARCH } from './SearchQueries';
+import { SEARCH } from './queries';
+import SearchPresenter from './search.presenter';
+import { SearchData, SearchVars } from './types';
 
 export const SearchContainer = withRouter(({ location: { search } }) => {
-  const term = search.split("=")[1];
-  const { data, loading } = useQuery(SEARCH, {
+  const [, term] = search.split('=');
+  const { data, loading } = useQuery<SearchData, SearchVars>(SEARCH, {
     skip: term === undefined,
     variables: {
       term,
