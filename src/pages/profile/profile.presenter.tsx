@@ -3,12 +3,11 @@ import Avatar from 'src/components/Avatar';
 import Button from 'src/components/Button';
 import FatText from 'src/components/FatText';
 import FollowButton from 'src/components/FollowButton';
-import { Header } from 'src/components/Header';
 import { Loader } from 'src/components/Loader';
 import SquarePost from 'src/components/SquarePost';
 
 import {
-    Bio, Count, Counts, FullName, HeaderColumn, Posts, Username, UsernameRow, Wrapper
+    Bio, Count, Counts, FullName, Header, HeaderColumn, Posts, Username, UsernameRow, Wrapper
 } from './profile.styles';
 import { Props } from './types';
 
@@ -21,7 +20,9 @@ export const ProfilePresenter: React.FC<Props> = (props: Props) => {
         <Loader />
       </Wrapper>
     );
-  } else if (!loading && data && data.seeUser) {
+  }
+
+  if (!loading && data && data.seeUser) {
     const {
       seeUser: {
         id,
@@ -83,5 +84,6 @@ export const ProfilePresenter: React.FC<Props> = (props: Props) => {
       </Wrapper>
     );
   }
+
   return null;
 };

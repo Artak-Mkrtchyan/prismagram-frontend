@@ -1,19 +1,14 @@
 import { toast } from 'react-toastify';
 import { logUserIn } from 'src/apollo/Client';
 import { useInput } from 'src/hooks/useInput';
-
-import { useMutation } from '@apollo/client';
+import { useLogin } from 'src/hooks/useLogin';
 
 import { LoginPresenter } from './login.presenter';
-import { LOG_IN } from './queries';
-import { LogInData, LogInVars } from './types';
 
 export const LoginContainer = () => {
   const password = useInput('');
   const email = useInput('');
-  const [loginMutation] = useMutation<LogInData, LogInVars>(LOG_IN, {
-    variables: { email: email.value, password: password.value },
-  });
+  const { loginMutation } = useLogin(email.value, password.value);
 
   const onSubmit = async (e) => {
     e.preventDefault();

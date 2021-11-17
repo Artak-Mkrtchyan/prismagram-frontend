@@ -1,10 +1,8 @@
 import { withRouter } from 'react-router';
-
-import { useMutation, useQuery } from '@apollo/client';
+import { logUserOut } from 'src/apollo/Client';
+import { useGetUser } from 'src/hooks/useGetUser';
 
 import { ProfilePresenter } from './profile.presenter';
-import { GET_USER, LOG_OUT } from './queries';
-import { GetUserData, GetUserVars } from './types';
 
 export const ProfileContainer = withRouter(
   ({
@@ -12,10 +10,9 @@ export const ProfileContainer = withRouter(
       params: { username },
     },
   }) => {
-    const { data, loading } = useQuery<GetUserData, GetUserVars>(GET_USER, {
-      variables: { username },
-    });
-    const [logOut] = useMutation(LOG_OUT);
+    const { data, loading } = useGetUser(username);
+    const logOut = logUserOut;
+
     return <ProfilePresenter loading={loading} logOut={logOut} data={data} />;
   }
 );
