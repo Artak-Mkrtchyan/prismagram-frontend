@@ -1,4 +1,3 @@
-import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useInput } from 'src/hooks/useInput';
@@ -45,7 +44,7 @@ const HeaderColumn = styled.div`
 `;
 
 const SearchInput = styled(Input)`
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.colors.bg};
   padding: 5px;
   font-size: 14px;
   height: auto;
@@ -66,8 +65,7 @@ const HeaderLink = styled(Link)`
 `;
 
 export const Header = withRouter(({ history }) => {
-  
-  const search = useInput("");
+  const search = useInput('');
   const { data } = useQuery(ME);
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -78,24 +76,28 @@ export const Header = withRouter(({ history }) => {
     <HeaderElement>
       <HeaderWrapper>
         <HeaderColumn>
-          <Link to='/'>
+          <Link to="/">
             <Logo />
           </Link>
         </HeaderColumn>
         <HeaderColumn>
           <form onSubmit={onSearchSubmit}>
-            <SearchInput value={search.value} onChange={search.onChange} placeholder='Search' />
+            <SearchInput
+              value={search.value}
+              onChange={search.onChange}
+              placeholder="Search"
+            />
           </form>
         </HeaderColumn>
         <HeaderColumn>
-          <HeaderLink to='/explore'>
+          <HeaderLink to="/explore">
             <Compass />
           </HeaderLink>
-          <HeaderLink to='/notifications'>
+          <HeaderLink to="/notifications">
             <HeartEmpty />
           </HeaderLink>
           {!data?.me ? (
-            <HeaderLink to='#'>
+            <HeaderLink to="#">
               <User />
             </HeaderLink>
           ) : (

@@ -8,12 +8,12 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background-color: ${(props: any) => props.theme.bgColor};
-    color: ${(props) => props.theme.blackColor};
+    background-color: ${(props) => props.theme.colors.bg};
+    color: ${(props) => props.theme.colors.black};
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   a {
-    color: ${(props) => props.theme.blueColor};
+    color: ${(props) => props.theme.colors.blue};
     text-decoration: none;
   }
   input:focus {

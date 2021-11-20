@@ -1,11 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.button`
   width: 100%;
   border: 0;
   border-radius: ${(props) => props.theme.borderRadius};
-  background-color: ${(props) => props.theme.blueColor};
+  background-color: ${(props) => props.theme.colors.blue};
   color: white;
   font-weight: 600;
   text-align: center;
@@ -14,7 +13,8 @@ const Container = styled.button`
   cursor: pointer;
 `;
 
-const Button = ({ text, onClick = () => {} }) => <Container onClick={onClick}>{text}</Container>;
-
+const Button = ({ text, onClick = () => {} }) => (
+  <Container onClick={onClick}>{text}</Container>
+);
 
 export default Button;

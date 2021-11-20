@@ -1,18 +1,22 @@
-const BORDER_RADIUS = "4px";
-const BOX_BORDER = "1px solid #e6e6e6";
+
+
+const BORDER_RADIUS = '4px';
+const BOX_BORDER = '1px solid #e6e6e6';
 
 export const theme = {
-  maxWidth: "935px",
-  bgColor: "#FAFAFA",
-  blackColor: "#262626",
-  blueColor: "#3897f0",
-  darkGrayColor: "#999",
-  darkBlueColor: "#003569",
-  lightGrayColor: "#c7c7c7",
-  redColor: "#ED4956",
-  boxBorder: "1px solid #e6e6e6",
-  borderRadius: "4px",
+  colors: {
+    bg: '#FAFAFA',
+    black: '#262626',
+    blue: '#3897f0',
+    darkGray: '#999',
+    darkBlue: '#003569',
+    lightGray: '#c7c7c7',
+    red: '#ED4956',
+  },
+  maxWidth: '935px',
+  boxBorder: '1px solid #e6e6e6',
+  borderRadius: '4px',
   whiteBox: `border-radius: ${BORDER_RADIUS};
     border: ${BOX_BORDER};
     background-color: white;`,
-};
+} as const;

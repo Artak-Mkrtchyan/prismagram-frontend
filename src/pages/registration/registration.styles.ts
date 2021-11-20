@@ -21,7 +21,7 @@ export const StateChanger = styled(Box)`
 `;
 
 export const Link = styled.span`
-  color: ${(props) => props.theme.blueColor};
+  color: ${(props) => props.theme.colors.blue};
   cursor: pointer;
 `;
 

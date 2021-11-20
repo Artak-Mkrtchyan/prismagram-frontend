@@ -7,15 +7,15 @@ import { isLoggedInVar } from 'src/apollo/Client';
 import { Footer } from 'src/components/Footer';
 import { Header } from 'src/components/Header';
 import Routes from 'src/components/Routes';
-import GlobalStyles from 'src/styles/GlobalStyles';
-import { theme } from 'src/styles/Theme';
+import GlobalStyles from 'src/styles/global-styles';
+import { theme } from 'src/styles/theme';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { useReactiveVar } from '@apollo/client';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: ${(props: any) => props.theme.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
   width: 100%;
 `;
 

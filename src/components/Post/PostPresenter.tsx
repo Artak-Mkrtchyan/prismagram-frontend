@@ -42,7 +42,7 @@ const Files = styled.div`
   flex-shrink: 0;
 `;
 
-const File = styled.div<any>`
+const File = styled.div<{ src: string; showing: boolean }>`
   max-width: 100%;
   width: 100%;
   height: 600px;
@@ -80,7 +80,7 @@ const Timestamp = styled.span`
   margin: 10px 0px;
   padding-bottom: 10px;
   display: block;
-  border-bottom: 1px solid ${(props) => props.theme.lightGrayColor};
+  border-bottom: 1px solid ${(props) => props.theme.colors.lightGray};
 `;
 
 const Textarea = styled(TextareaAutosize)`
