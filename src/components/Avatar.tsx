@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const getSize = (size: any) => {
+const getSize = (size) => {
   let number;
   if (size === 'sm') {
     number = 30;

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.input<any>`
+const Container = styled.input`
   border: ${(props) => props.theme.boxBorder};
   border-radius: ${(props) => props.theme.borderRadius};
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.colors.bg};
   height: 35px;
   font-size: 12px;
   padding: 0px 15px;
@@ -32,7 +32,7 @@ const Input: React.FC<Props> = ({
     placeholder={placeholder}
     required={required}
     value={value}
-    onChange={onChange}
+    onChange={() => onChange}
     type={type}
   />
 );
