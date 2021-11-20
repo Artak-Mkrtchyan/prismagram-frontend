@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const getSize = (size) => {
+const getSize = (size: any) => {
   let number;
   if (size === 'sm') {
     number = 30;
@@ -18,7 +18,7 @@ const getSize = (size) => {
 };
 
 const Container = styled.div`
-  ${(props) => getSize(props.size)};
+  ${(props: { url: string; size: string }) => getSize(props.size)};
   background-image: url(${(props) => props.url});
   background-size: cover;
   border-radius: 50%;

@@ -9,7 +9,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -25,6 +28,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
+    "@types/styled-components": "^5.1.15",
     "graphql": "^16.0.1",
     "react": "^17.0.2",
     "react-autosize-textarea": "^7.0.0",

@@ -5,7 +5,7 @@ export const TOKEN = 'TOKEN';
 
 export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
 
-export const logUserIn = (token) => {
+export const logUserIn = (token: string) => {
   localStorage.setItem(TOKEN, token);
   isLoggedInVar(true);
 };

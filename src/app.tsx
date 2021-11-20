@@ -15,7 +15,7 @@ import { useReactiveVar } from '@apollo/client';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: ${(props) => props.theme.maxWidth};
+  max-width: ${(props: any) => props.theme.maxWidth};
   width: 100%;
 `;
 
@@ -26,12 +26,12 @@ export const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Router >
-            {isLoggedIn && <Header />}
-            <Wrapper>
-              <Routes isLoggedIn={isLoggedIn} />
-              <Footer />
-            </Wrapper>
+        <Router>
+          {isLoggedIn && <Header />}
+          <Wrapper>
+            <Routes isLoggedIn={isLoggedIn} />
+            <Footer />
+          </Wrapper>
         </Router>
         <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
       </>
