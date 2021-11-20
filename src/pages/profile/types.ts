@@ -24,35 +24,6 @@ export interface User {
   updatedAt: string;
 }
 
-export interface SeeUser {
-  id: string;
-  avatar: string;
-  username: string;
-  fullName: string;
-  isFollowing: boolean;
-  isSelf: boolean;
-  bio: string;
-  followingCount: number;
-  followersCount: number;
-  postsCount: number;
-  posts: {
-    id: string;
-    files: {
-      url: string;
-    };
-    likeCount: number;
-    commentCount: number;
-  }[];
-}
-
-export interface GetUserData {
-  seeUser: SeeUser;
-}
-
-export interface GetUserVars {
-  username: string;
-}
-
 export interface Props {
   loading: boolean;
   data;

@@ -1,15 +1,3 @@
-export interface CreateAccountVars {
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
-}
-
-export interface CreateAccountData {
-  createAccount: CreateAccountVars;
-}
-
 export interface FormField {
   value: string;
   onChange: Function;

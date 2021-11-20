@@ -1,11 +1,8 @@
 import { toast } from 'react-toastify';
+import { useCreateUser } from 'src/hooks/useCreateUser';
 import { useInput } from 'src/hooks/useInput';
 
-import { useMutation } from '@apollo/client';
-
-import { CREATE_ACCOUNT } from './queries';
 import { RegistrationPresenter } from './registration.presenter';
-import { CreateAccountData, CreateAccountVars } from './types';
 
 export const RegistrationContainer = () => {
   const username = useInput('');
@@ -14,17 +11,12 @@ export const RegistrationContainer = () => {
   const lastName = useInput('');
   const email = useInput('');
 
-  const [createAccountMutation, { data: createAccountData }] = useMutation<
-    CreateAccountData,
-    CreateAccountVars
-  >(CREATE_ACCOUNT, {
-    variables: {
-      email: email.value,
-      username: username.value,
-      firstName: firstName.value,
-      lastName: lastName.value,
-      password: password.value,
-    },
+  const { createAccountMutation, createAccountData } = useCreateUser({
+    email: email.value,
+    username: username.value,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    password: password.value,
   });
 
   const onSubmit = async (e) => {

@@ -1,4 +1,3 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import { TOKEN } from 'src/apollo/Client';
 
 export const defaults = {
@@ -7,11 +6,8 @@ export const defaults = {
 
 export const resolvers = {
   Mutation: {
-    logUserIn: (
-      _: any,
-      { token }: any,
-      { cache }: { cache: InMemoryCache }
-    ) => {
+    logUserIn: (_, { token }, { cache }) => {
+
       localStorage.setItem(TOKEN, token);
 
       cache.writeData({
