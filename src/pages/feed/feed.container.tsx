@@ -1,11 +1,9 @@
-import { useQuery } from '@apollo/client';
+import { useGetFeed } from 'src/hooks/useGetFeed';
 
 import { FeedPresenter } from './feed.presenter';
-import { FEED_QUERY } from './queries';
-import { FeedData, FeedVars } from './types';
 
 export const FeedContainer = () => {
-  const { data, loading } = useQuery<FeedData, FeedVars>(FEED_QUERY);
+  const { data, loading } = useGetFeed();
 
-  return <FeedPresenter seeFeed={data.seeFeed} loading={loading} />;
+  return <FeedPresenter feed={data?.seeFeed} loading={loading} />;
 };

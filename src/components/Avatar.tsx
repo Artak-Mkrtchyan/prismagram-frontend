@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import styled from 'styled-components';
 
 const getSize = (size) => {
   let number;
-  if (size === "sm") {
+  if (size === 'sm') {
     number = 30;
-  } else if (size === "md") {
+  } else if (size === 'md') {
     number = 50;
-  } else if (size === "lg") {
+  } else if (size === 'lg') {
     number = 150;
   }
 
@@ -25,12 +24,12 @@ const Container = styled.div`
   border-radius: 50%;
 `;
 
-const Avatar = ({ size = "sm", url, className = '' }) => (
+const Avatar = ({ size = 'sm', url, className = '' }) => (
   <Container className={className} size={size} url={url} />
 );
 
 Avatar.propTypes = {
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   url: PropTypes.string.isRequired,
 };
 

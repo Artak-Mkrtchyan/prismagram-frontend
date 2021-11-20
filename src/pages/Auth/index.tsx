@@ -1,2 +1,0 @@
-export { Auth } from './AuthContainer';
-

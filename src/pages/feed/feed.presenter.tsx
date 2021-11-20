@@ -6,7 +6,7 @@ import { Wrapper } from './feed.styles';
 import { Props } from './types';
 
 export const FeedPresenter: React.FC<Props> = (props: Props) => {
-  const { seeFeed, loading } = props;
+  const { feed, loading } = props;
 
   return (
     <Wrapper>
@@ -15,8 +15,8 @@ export const FeedPresenter: React.FC<Props> = (props: Props) => {
       </Helmet>
       {loading && <Loader />}
       {!loading &&
-        seeFeed &&
-        seeFeed.map((post) => (
+        feed &&
+        feed.map((post) => (
           <Post
             id={post.id}
             user={post.user}
