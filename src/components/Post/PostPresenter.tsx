@@ -1,4 +1,3 @@
-import React from 'react';
 import TextareaAutosize from 'react-autosize-textarea';
 import { Link } from 'react-router-dom';
 import Avatar from 'src/components/Avatar';
@@ -43,7 +42,7 @@ const Files = styled.div`
   flex-shrink: 0;
 `;
 
-const File = styled.div`
+const File = styled.div<any>`
   max-width: 100%;
   width: 100%;
   height: 600px;
@@ -123,7 +122,7 @@ export const PostPresenter = ({
   return (
     <Post>
       <Header>
-        <Avatar size='sm' url={avatar} />
+        <Avatar size="sm" url={avatar} />
         <UserColumn>
           <Link to={`/${username}`}>
             <FatText text={username} />
@@ -134,17 +133,24 @@ export const PostPresenter = ({
       <Files>
         {files &&
           files.map((file, index) => (
-            <File key={file.id} src={file.url} id={file.id} showing={index === currentItem} />
+            <File
+              key={file.id}
+              src={file.url}
+              id={file.id}
+              showing={index === currentItem}
+            />
           ))}
       </Files>
       <Meta>
         <Buttons>
-          <Button onClick={() => toggleLike()}>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+          <Button onClick={() => toggleLike()}>
+            {isLiked ? <HeartFull /> : <HeartEmpty />}
+          </Button>
           <Button>
             <CommentIcon />
           </Button>
         </Buttons>
-        <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+        <FatText text={likeCount === 1 ? '1 like' : `${likeCount} likes`} />
         {comments && (
           <Comments>
             {comments.map((comment) => (
@@ -164,7 +170,7 @@ export const PostPresenter = ({
 
         <Timestamp>{createdAt}</Timestamp>
         <Textarea
-          placeholder={"Add a comment..."}
+          placeholder={'Add a comment...'}
           value={newComment.value}
           onKeyUp={onKeyPress}
           onChange={newComment.onChange}

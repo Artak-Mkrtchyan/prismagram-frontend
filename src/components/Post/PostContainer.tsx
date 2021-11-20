@@ -27,9 +27,10 @@ const PostContainer = ({
   // const { data: meQuery } = useQuery(ME);
 
   const [toggleLikeMutation] = useMutation(TOGGLE_LIKE);
-  const [addCommentMutation] = useMutation<{addComment: () => {}}>(ADD_COMMENT);
+  const [addCommentMutation] =
+    useMutation<{ addComment: () => {} }>(ADD_COMMENT);
 
-  const comment = useInput("");
+  const comment = useInput('');
 
   const slide = () => {
     const totalFiles = files.length;
@@ -63,7 +64,7 @@ const PostContainer = ({
     const { which } = e;
     e.preventDefault();
     if (which === 13) {
-      comment.setValue("");
+      comment.setValue('');
       try {
         const {
           data: { addComment },
