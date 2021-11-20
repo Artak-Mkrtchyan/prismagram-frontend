@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { CommentFull, HeartFull } from './Icons';
@@ -18,7 +17,7 @@ const Overlay = styled.div`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<any>`
   background-image: url(${(props) => props.bg});
   background-size: cover;
   cursor: pointer;
@@ -58,6 +57,5 @@ const SquarePost = ({ likeCount, commentCount, file }) => (
     </Overlay>
   </Container>
 );
-
 
 export default SquarePost;
