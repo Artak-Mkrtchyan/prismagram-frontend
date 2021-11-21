@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Props } from './types';
+
 const Container = styled.button`
   width: 100%;
   border: 0;
@@ -13,8 +15,6 @@ const Container = styled.button`
   cursor: pointer;
 `;
 
-const Button = ({ text, onClick = () => {} }) => (
+export const Button = ({ text, onClick = () => {} }: Props) => (
   <Container onClick={onClick}>{text}</Container>
 );
-
-export default Button;

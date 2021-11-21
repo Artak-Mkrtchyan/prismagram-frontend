@@ -1,13 +1,12 @@
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { Compass, HeartEmpty, Logo, User } from 'src/components/icons';
+import { Input } from 'src/components/input';
 import { useInput } from 'src/hooks/useInput';
 import { ME } from 'src/SharedQueries';
 import styled from 'styled-components';
 
 import { useQuery } from '@apollo/client';
-
-import { Compass, HeartEmpty, Logo, User } from './Icons';
-import Input from './Input';
 
 const HeaderElement = styled.header`
   width: 100%;

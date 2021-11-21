@@ -4,9 +4,9 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { isLoggedInVar } from 'src/apollo/Client';
-import { Footer } from 'src/components/Footer';
-import { Header } from 'src/components/Header';
-import Routes from 'src/components/Routes';
+import { Footer } from 'src/components/footer';
+import { Header } from 'src/components/header';
+import { AppRouter } from 'src/routes';
 import GlobalStyles from 'src/styles/global-styles';
 import { theme } from 'src/styles/theme';
 import styled, { ThemeProvider } from 'styled-components';
@@ -29,7 +29,7 @@ export const App: React.FC = () => {
         <Router>
           {isLoggedIn && <Header />}
           <Wrapper>
-            <Routes isLoggedIn={isLoggedIn} />
+            <AppRouter isLoggedIn={isLoggedIn} />
             <Footer />
           </Wrapper>
         </Router>
