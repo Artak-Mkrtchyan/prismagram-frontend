@@ -44,7 +44,11 @@ const NumberText = styled.span`
   font-size: 16px;
 `;
 
-export const SquarePost = ({ likeCount, commentCount, file }: Props) => (
+export const SquarePost: React.FC<Props> = ({
+  likeCount,
+  commentCount,
+  file,
+}: Props) => (
   <Container bg={file.url}>
     <Overlay>
       <Number>

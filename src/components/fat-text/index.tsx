@@ -6,6 +6,6 @@ const Text = styled.span`
   font-weight: 600;
 `;
 
-export const FatText = ({ text, className = '' }: Props) => (
+export const FatText: React.FC<Props> = ({ text, className = '' }: Props) => (
   <Text className={className}>{text}</Text>
 );

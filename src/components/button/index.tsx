@@ -15,6 +15,7 @@ const Container = styled.button`
   cursor: pointer;
 `;
 
-export const Button = ({ text, onClick = () => {} }: Props) => (
-  <Container onClick={onClick}>{text}</Container>
-);
+export const Button: React.FC<Props> = ({
+  text,
+  onClick = () => {},
+}: Props) => <Container onClick={onClick}>{text}</Container>;

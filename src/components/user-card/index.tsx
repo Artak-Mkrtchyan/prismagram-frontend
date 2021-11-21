@@ -24,7 +24,13 @@ const ELink = styled(Link)`
   margin-bottom: 10px;
 `;
 
-export const UserCard = ({ id, username, isFollowing, url, isSelf }: Props) => (
+export const UserCard: React.FC<Props> = ({
+  id,
+  username,
+  isFollowing,
+  url,
+  isSelf,
+}: Props) => (
   <Card>
     <EAvatar url={url} size={SIZE.LARGE} />
     <ELink to={`/${username}`}>

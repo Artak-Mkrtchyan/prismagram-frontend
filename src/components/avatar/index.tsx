@@ -25,6 +25,8 @@ const Container = styled.div`
   border-radius: 50%;
 `;
 
-export const Avatar = ({ size = SIZE.SMALL, url, className = '' }: Props) => (
-  <Container className={className} size={size} url={url} />
-);
+export const Avatar: React.FC<Props> = ({
+  size = SIZE.SMALL,
+  url,
+  className = '',
+}: Props) => <Container className={className} size={size} url={url} />;

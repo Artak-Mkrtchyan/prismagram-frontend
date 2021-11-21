@@ -30,7 +30,7 @@ const Copyright = styled.span`
   color: ${(props) => props.theme.colors.darkGray};
 `;
 
-export const Footer = (props: Props) => (
+export const Footer: React.FC<Props> = (props: Props) => (
   <FooterElement>
     <List>
       <ListItem>
