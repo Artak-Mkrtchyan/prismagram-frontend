@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Props } from './types';
+
 const Container = styled.input`
   border: ${(props) => props.theme.boxBorder};
   border-radius: ${(props) => props.theme.borderRadius};
@@ -10,16 +12,7 @@ const Container = styled.input`
   padding: 0px 15px;
 `;
 
-interface Props {
-  placeholder: string;
-  required?: boolean;
-  value: string;
-  onChange: Function;
-  type?: string;
-  className?: string;
-}
-
-const Input: React.FC<Props> = ({
+export const Input: React.FC<Props> = ({
   placeholder,
   required = true,
   value,
@@ -36,5 +29,3 @@ const Input: React.FC<Props> = ({
     type={type}
   />
 );
-
-export default Input;

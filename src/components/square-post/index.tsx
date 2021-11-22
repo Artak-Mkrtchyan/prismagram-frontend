@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { CommentFull, HeartFull } from './Icons';
+import { CommentFull, HeartFull } from '../icons';
+import { Props } from './types';
 
 const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
@@ -43,7 +44,11 @@ const NumberText = styled.span`
   font-size: 16px;
 `;
 
-const SquarePost = ({ likeCount, commentCount, file }) => (
+export const SquarePost: React.FC<Props> = ({
+  likeCount,
+  commentCount,
+  file,
+}: Props) => (
   <Container bg={file.url}>
     <Overlay>
       <Number>
@@ -57,5 +62,3 @@ const SquarePost = ({ likeCount, commentCount, file }) => (
     </Overlay>
   </Container>
 );
-
-export default SquarePost;

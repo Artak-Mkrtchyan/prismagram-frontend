@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
-import Button from 'src/components/Button';
-import Input from 'src/components/Input';
+import { Button } from 'src/components/button';
+import { Input } from 'src/components/input';
 
 import { Form, Link, StateChanger, Wrapper } from './login.styles';
 import { Props } from './types';

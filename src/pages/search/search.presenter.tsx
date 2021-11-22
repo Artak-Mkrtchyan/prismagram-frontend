@@ -1,8 +1,8 @@
 import React from 'react';
-import FatText from 'src/components/FatText';
-import { Loader } from 'src/components/Loader';
-import SquarePost from 'src/components/SquarePost';
-import UserCard from 'src/components/UserCard';
+import { FatText } from 'src/components/fat-text';
+import { Loader } from 'src/components/loader';
+import { SquarePost } from 'src/components/square-post';
+import { UserCard } from 'src/components/user-card';
 
 import { PostSection, Wrapper } from './search.styles';
 import { Props } from './types';

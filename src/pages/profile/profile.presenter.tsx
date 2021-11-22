@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet';
-import Avatar from 'src/components/Avatar';
-import Button from 'src/components/Button';
-import FatText from 'src/components/FatText';
-import FollowButton from 'src/components/FollowButton';
-import { Loader } from 'src/components/Loader';
-import SquarePost from 'src/components/SquarePost';
+import { Avatar } from 'src/components/avatar';
+import { SIZE } from 'src/components/avatar/types';
+import { Button } from 'src/components/button';
+import { FatText } from 'src/components/fat-text';
+import FollowButton from 'src/components/follow-button';
+import { Loader } from 'src/components/loader';
+import { SquarePost } from 'src/components/square-post';
 
 import {
     Bio, Count, Counts, FullName, Header, HeaderColumn, Posts, Username, UsernameRow, Wrapper
@@ -45,7 +46,7 @@ export const ProfilePresenter: React.FC<Props> = (props: Props) => {
         </Helmet>
         <Header>
           <HeaderColumn>
-            <Avatar size="lg" url={avatar} />
+            <Avatar size={SIZE.LARGE} url={avatar} />
           </HeaderColumn>
           <HeaderColumn>
             <UsernameRow>

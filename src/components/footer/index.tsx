@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Props } from './types';
+
 const FooterElement = styled.footer`
   display: flex;
   justify-content: space-between;
@@ -28,7 +30,7 @@ const Copyright = styled.span`
   color: ${(props) => props.theme.colors.darkGray};
 `;
 
-export const Footer = () => (
+export const Footer: React.FC<Props> = (props: Props) => (
   <FooterElement>
     <List>
       <ListItem>

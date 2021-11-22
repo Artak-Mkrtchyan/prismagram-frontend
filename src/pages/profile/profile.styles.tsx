@@ -1,4 +1,4 @@
-import FatText from 'src/components/FatText';
+import { FatText } from 'src/components/fat-text';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
