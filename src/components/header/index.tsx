@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Compass, HeartEmpty, Logo, User } from 'src/components/icons';
-import { Input } from 'src/components/input';
+import { Search } from 'src/components/search/index';
 import { useInput } from 'src/hooks/useInput';
 import { ME } from 'src/SharedQueries';
 import styled from 'styled-components';
@@ -42,21 +42,6 @@ const HeaderColumn = styled.div`
   }
 `;
 
-const SearchInput = styled(Input)`
-  background-color: ${(props) => props.theme.colors.bg};
-  padding: 5px;
-  font-size: 14px;
-  height: auto;
-  border-radius: 3px;
-  text-align: center;
-  width: 70%;
-
-  &::placeholder {
-    opacity: 0.8;
-    font-weight: 400;
-  }
-`;
-
 const HeaderLink = styled(Link)`
   &:not(:last-child) {
     margin-right: 30px;
@@ -81,7 +66,7 @@ export const Header = withRouter(({ history }) => {
         </HeaderColumn>
         <HeaderColumn>
           <form onSubmit={onSearchSubmit}>
-            <SearchInput
+            <Search
               value={search.value}
               onChange={search.onChange}
               placeholder="Search"
