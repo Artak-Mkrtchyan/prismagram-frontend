@@ -1,165 +1,157 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { CloseIcon, SearchIcon, User } from 'src/components/ui/elements/icons';
 import styled from 'styled-components';
 
-export interface Props {
-  value: string;
-  onChange: Function;
-  placeholder: string;
-}
+import * as Styled from './styles';
+import { Props } from './types';
 
-const Input = styled.input`
-  border: 1px solid #dbdbdb;
-  color: #262626;
-  outline: 0;
-  border-radius: 4px;
-  background-color: #fafafa;
+export const Div = styled.div`
   display: flex;
-  justify-content: flex-start;
+  height: 60px;
+  align-items: center;
   width: 100%;
-  font-size: 14px;
-  height: 28px;
-  padding: 0 12px;
+  padding: 8px 16px;
+  justify-content: space-between;
 
-  &::placeholder {
-    opacity: 0.8;
-    font-weight: 400;
+  &:hover {
+    background-color: #fafafa;
   }
 `;
 
-const Container = styled.div`
+export const CircleWrapper = styled.div`
+  border: 2px solid red;
+  border-radius: 50%;
+  padding: 3px;
+`;
+
+export const Circle = styled.div`
   display: flex;
-  width: 215px;
-  min-width: 125px;
-  position: relative;
   align-items: center;
+  justify-content: center;
+  background: antiquewhite;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
 `;
 
-const SearchButton = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 12px;
-  border: 1px solid #dbdbdb;
-  border-radius: 4px;
-  background-color: #fafafa;
-  height: 28px;
-  width: 215px;
-  min-width: 125px;
-`;
-
-const Text = styled.span`
-  display: inline-block;
-  max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: bottom;
-  font-size: 14px;
-  color: #8e8e8e;
-  white-space: nowrap;
-`;
-
-const SearchIcon = styled.span`
-  background-repeat: no-repeat;
-  height: 10px;
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: baseline;
-  width: 10px;
-  background-size: 440px 411px;
-  background-position: -428px -241px;
-  background-image: url(./bcd90c1d4868.png);
-`;
-
-const CloseIcon = styled.span`
-  position: absolute;
-  background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-  right: 5px;
-  display: inline-block;
-  vertical-align: baseline;
-  background-size: 440px 411px;
-  background-position: -380px -96px;
-  background-image: url(./bcd90c1d4868.png);
-`;
-
-const PopupCorner = styled.div`
-  position: absolute;
-  height: 14px;
-  width: 14px;
-  transform: rotate(45deg);
-  background: #fff;
-  border: 1px solid #fff;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
-  left: 187.5px;
-  top: -6px;
-`;
-
-const Wrapper = styled.div`
+export const Text = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 275px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0px 10px;
 `;
 
-const Popup = styled.div`
+export const Header = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin: 4px 16px 0;
+  max-height: 24px;
+`;
+
+export const List = styled.div`
+  margin: 8px 0;
+`;
+
+export const Button = styled.button`
+  border: 0;
+  color: #0095f6;
+  display: inline;
+  padding: 0;
   position: relative;
-  width: 375px;
-  top: 12px;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
+  background: 0 0;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-transform: inherit;
+  text-overflow: ellipsis;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
 `;
 
-const PopupContent = styled.div`
-  display: flex;
-  position: absolute;
-  height: 362px;
-  width: 375px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 12px 0 0 0;
-  background: white;
-  border-radius: 6px;
+export const Dialog = styled.div`
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
 `;
 
-const PopupBody = styled.div`
-  position: absolute;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
-  border: 1px solid #fff;
-  border-radius: 6px;
-  height: 362px;
-  width: 375px;
-`;
+export const ListItem: React.FC = () => (
+  <Div>
+    <CircleWrapper>
+      <Circle>
+        <User />
+      </Circle>
+    </CircleWrapper>
+    <Text>
+      <div>Name</div>
+      <div>Description</div>
+    </Text>
+    <div>
+      <svg
+        aria-label="Закрыть"
+        color="#8e8e8e"
+        fill="#8e8e8e"
+        height="16"
+        role="img"
+        viewBox="0 0 48 48"
+        width="16"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z"
+          fill-rule="evenodd"
+        ></path>
+      </svg>
+    </div>
+  </Div>
+);
 
 export const Search: React.FC<Props> = (props: Props) => {
   const [touched, setStatus] = useState<boolean>(false);
 
   return (
-    <Wrapper>
-      <Container>
+    <Styled.Wrapper>
+      <Styled.Container>
         {touched ? (
           <>
-            <Input autoFocus placeholder="Search" />
+            <Styled.Input autoFocus placeholder="Search" />
             <CloseIcon onClick={() => setStatus(false)} />
           </>
         ) : (
-          <SearchButton onClick={() => setStatus(true)}>
+          <Styled.SearchButton onClick={() => setStatus(true)}>
             <SearchIcon />
-            <Text>Search</Text>
-          </SearchButton>
+            <Styled.Text>Search</Styled.Text>
+          </Styled.SearchButton>
         )}
-      </Container>
+      </Styled.Container>
       {touched ? (
-        <Popup>
-          <PopupBody>
-            <PopupCorner />
-            <PopupContent />
-          </PopupBody>
-        </Popup>
+        <>
+          <Dialog onClick={() => setStatus(false)} />
+          <Styled.Popup>
+            <Styled.PopupBody>
+              <Styled.PopupCorner />
+              <Styled.PopupContent>
+                <Header>
+                  <h4>Recent</h4>
+                  <Button>Clear All</Button>
+                </Header>
+                <List>
+                  {Array.from(Array(10).keys()).map(() => (
+                    <ListItem />
+                  ))}
+                </List>
+              </Styled.PopupContent>
+            </Styled.PopupBody>
+          </Styled.Popup>
+        </>
       ) : (
         <></>
       )}
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };
