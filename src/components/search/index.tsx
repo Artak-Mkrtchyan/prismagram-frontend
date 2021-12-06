@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CloseIcon, SearchIcon, User } from 'src/components/ui/elements/icons';
+import { CloseCircleIcon, CloseIcon, SearchIcon, User } from 'src/components/ui/elements/icons';
 import styled from 'styled-components';
 
 import * as Styled from './styled';
@@ -92,21 +92,7 @@ export const ListItem: React.FC = () => (
       <div>Description</div>
     </Text>
     <div>
-      <svg
-        aria-label="Закрыть"
-        color="#8e8e8e"
-        fill="#8e8e8e"
-        height="16"
-        role="img"
-        viewBox="0 0 48 48"
-        width="16"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z"
-          fill-rule="evenodd"
-        ></path>
-      </svg>
+      <CloseIcon />
     </div>
   </Div>
 );
@@ -124,7 +110,7 @@ export const Search: React.FC<Props> = (props: Props) => {
               onChange={() => {}}
               placeholder="Search"
             />
-            <CloseIcon onClick={() => setStatus(false)} />
+            <CloseCircleIcon onClick={() => setStatus(false)} />
           </>
         ) : (
           <Styled.SearchButton onClick={() => setStatus(true)}>
