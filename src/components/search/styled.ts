@@ -1,6 +1,7 @@
+import { Input } from 'src/components/ui/elements/input';
 import styled from 'styled-components';
 
-export const Input = styled.input`
+export const SearchInput = styled(Input)`
   border: 1px solid #dbdbdb;
   color: #262626;
   outline: 0;

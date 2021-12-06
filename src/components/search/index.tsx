@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CloseIcon, SearchIcon, User } from 'src/components/ui/elements/icons';
 import styled from 'styled-components';
 
-import * as Styled from './styles';
+import * as Styled from './styled';
 import { Props } from './types';
 
 export const Div = styled.div`
@@ -119,7 +119,11 @@ export const Search: React.FC<Props> = (props: Props) => {
       <Styled.Container>
         {touched ? (
           <>
-            <Styled.Input autoFocus placeholder="Search" />
+            <Styled.SearchInput
+              value=""
+              onChange={() => {}}
+              placeholder="Search"
+            />
             <CloseIcon onClick={() => setStatus(false)} />
           </>
         ) : (
