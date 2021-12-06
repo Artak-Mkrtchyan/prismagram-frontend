@@ -1,6 +1,5 @@
+import { Logo } from 'src/components/ui/elements/icons';
 import styled, { keyframes } from 'styled-components';
-
-import { Logo } from './icons';
 
 const Animation = keyframes`
   0% {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { CommentFull, HeartFull } from '../icons';
+import { CommentFull, HeartFull } from '../ui/elements/icons';
 import { Props } from './types';
 
 const Overlay = styled.div`

@@ -1,5 +1,3 @@
-
-
 const BORDER_RADIUS = '4px';
 const BOX_BORDER = '1px solid #e6e6e6';
 
@@ -14,7 +12,8 @@ export const theme = {
     red: '#ED4956',
   },
   maxWidth: '935px',
-  boxBorder: '1px solid #e6e6e6',
+  boxBorder: '1px solid #dbdbdb',
+
   borderRadius: '4px',
   whiteBox: `border-radius: ${BORDER_RADIUS};
     border: ${BOX_BORDER};
