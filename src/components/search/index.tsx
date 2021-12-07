@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'src/components/ui/elements/button';
 import { CloseCircleIcon, SearchIcon } from 'src/components/ui/elements/icons';
 import styled from 'styled-components';
 
@@ -13,7 +14,7 @@ export const Header = styled.div`
   max-height: 24px;
 `;
 
-export const Button = styled.button`
+export const ClearButton = styled(Button)`
   border: 0;
   color: #0095f6;
   display: inline;
@@ -56,9 +57,8 @@ export const Search: React.FC<Props> = (props: Props) => {
             <CloseCircleIcon onClick={() => setStatus(false)} />
           </>
         ) : (
-          <Styled.SearchButton onClick={() => setStatus(true)}>
+          <Styled.SearchButton value="Search" onClick={() => setStatus(true)}>
             <SearchIcon />
-            <Styled.Text>Search</Styled.Text>
           </Styled.SearchButton>
         )}
       </Styled.Container>
@@ -71,7 +71,7 @@ export const Search: React.FC<Props> = (props: Props) => {
               <Styled.PopupContent>
                 <Header>
                   <h4>Recent</h4>
-                  <Button>Clear All</Button>
+                  <ClearButton value="Clear All" onClick={() => {}} />
                 </Header>
                 <SearchList />
               </Styled.PopupContent>
