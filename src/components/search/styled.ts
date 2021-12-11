@@ -1,3 +1,4 @@
+import { Button } from 'src/components/ui/elements/button';
 import { Input } from 'src/components/ui/elements/input';
 import styled from 'styled-components';
 
@@ -28,7 +29,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const SearchButton = styled.div`
+export const SearchButton = styled(Button)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -39,11 +40,7 @@ export const SearchButton = styled.div`
   height: 28px;
   width: 215px;
   min-width: 125px;
-`;
 
-export const Text = styled.span`
-  display: inline-block;
-  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: bottom;
